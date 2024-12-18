@@ -42,7 +42,10 @@ text = tokenizer.apply_chat_template(
     tokenize=False,
     add_generation_prompt=True
 )
+print(text)
 model_inputs = tokenizer([text], return_tensors="pt").to(model.device)
+print(model_inputs)
+print(model_inputs.input_ids.shape)
 
 generated_ids = model.generate(
     **model_inputs,
